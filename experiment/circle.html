@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        overflow: hidden;
+      }
+    </style>
+    <link rel="stylesheet" href="./css/circle-css.css" />
+  </head>
+  <body>
+    <div id="circle-1" class="startbutton circle-1 yel-circle">G76H</div>
+    <a class="button" id="go-to-quiz"
+      ><button onclick="location.id ='go-to-quiz'"><span>Next</span></button>
+    </a>
+
+    <div id="circle-2" class="startbutton circle-2 yel-circle">214L</div>
+    <div id="circle-3" class="startbutton circle-3 yel-circle">CFXZ</div>
+    <div id="circle-4" class="startbutton circle-4 yel-circle">RT5E</div>
+    <div id="circle-5" class="startbutton circle-5 yel-circle">TY7E</div>
+    <div id="circle-6" class="startbutton circle-6 yel-circle">997L</div>
+    <div id="circle-7" class="startbutton circle-7 yel-circle">4RUI</div>
+    <div id="circle-8" class="startbutton circle-8 yel-circle">HI63</div>
+    <div id="circle-9" class="startbutton circle-9 yel-circle">LKJ4</div>
+
+    <script>
+      let url = new URL(window.location.href);
+      console.log(url);
+      let params = new URLSearchParams(url.search);
+      let problemCountRawStr = params.get("problemCount"); // string
+      const problemCount = parseInt(problemCountRawStr);
+      console.assert(problemCount >= 0, "problemCount is invalid");
+      console.log(problemCount);
+      const nextButtonElm = document.getElementById("go-to-quiz");
+      nextButtonElm.onclick = () => {
+        window.location.href = `quiz.html?problemCount=${problemCount}`;
+      };
+      document.getElementById("circle-1").onclick = function () {
+        document.getElementById("circle-1").style.display = "none";
+      };
+      document.getElementById("circle-2").onclick = function () {
+        document.getElementById("circle-2").style.display = "none";
+      };
+      document.getElementById("circle-3").onclick = function () {
+        document.getElementById("circle-3").style.display = "none";
+      };
+      document.getElementById("circle-4").onclick = function () {
+        document.getElementById("circle-4").style.display = "none";
+      };
+      document.getElementById("circle-5").onclick = function () {
+        document.getElementById("circle-5").style.display = "none";
+      };
+      document.getElementById("circle-6").onclick = function () {
+        document.getElementById("circle-6").style.display = "none";
+      };
+      document.getElementById("circle-7").onclick = function () {
+        document.getElementById("circle-7").style.display = "none";
+      };
+      document.getElementById("circle-8").onclick = function () {
+        document.getElementById("circle-8").style.display = "none";
+      };
+      document.getElementById("circle-9").onclick = function () {
+        document.getElementById("circle-9").style.display = "none";
+      };
+
+      const yelCircles = [...document.getElementsByClassName("yel-circle")];
+      console.assert(yelCircles.length === 9, "invalid num of circles");
+      yelCircles.forEach((elm, circlIdx) => {
+        const visibility = circlIdx === problemCount ? "visible" : "hidden";
+        elm.style.visibility = visibility;
+      });
+    </script>
+
+    <style>
+      body {
+        overflow: hidden;
+      }
+    </style>
+    <link rel="stylesheet" href="./css/camera-css.css" />
+
+
+    <div class="contentarea" style="visibility: hidden;">
+      <div class="camera">
+        <video id="video">Video stream not available.</video>
+      </div>
+      <canvas id="canvas"> </canvas>
+      <div class="output">
+        <img id="photo" alt="The screen capture will appear in this box." />
+      </div>
+    </div>
+    <script src="js/camera-js.js"></script>
+  </body>
+</html>

@@ -1,0 +1,177 @@
+/* #hideMeAfter2Seconds {
+    animation: hideAnimation 0s ease-in 2s;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes hideAnimation {
+    to {
+      visibility: hidden;
+      width: 0;
+      height: 0;
+    }
+  } */
+  
+.circle-1 {
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    border-radius: 50%;
+    font-size: 40px;
+    color: rgb(12, 12, 12);
+    text-align: center;
+    background: rgb(199, 233, 7)
+  }
+  .circle-2 {
+    width: 150px;
+    height: 150px;
+    display:block;
+    position:absolute;
+    top:1%; 
+    left:48%;
+    line-height: 150px;
+    border-radius: 50%;
+    font-size: 40px;
+    color: rgb(12, 12, 12);
+    text-align: center;
+    background: rgb(199, 233, 7)
+  }
+  .circle-3 {
+    width: 150px;
+    height: 150px;
+    display:block;
+    position:absolute;
+    top:1%; 
+    right:0.5%;
+    line-height: 150px;
+    border-radius: 50%;
+    font-size: 40px;
+    color: rgb(12, 12, 12);
+    text-align: center;
+    background: rgb(199, 233, 7)
+  }
+  .circle-4 {
+    width: 150px;
+    height: 150px;
+    display:block;
+    position:absolute;
+    top:35%;
+    left:0.5%;
+    line-height: 150px;
+    border-radius: 50%;
+    font-size: 40px;
+    color: rgb(12, 12, 12);
+    text-align: center;
+    background: rgb(199, 233, 7)
+  }
+  .circle-5 {
+    width: 150px;
+    height: 150px;
+    display:block;
+    position:absolute;
+    top:35%;
+    left:45%;
+    line-height: 150px;
+    border-radius: 50%;
+    font-size: 40px;
+    color: rgb(12, 12, 12);
+    text-align: center;
+    background: rgb(199, 233, 7)
+  }
+  .circle-6 {
+    display:block;
+    position:absolute;
+    top:35%; 
+    right:0.5%;
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    border-radius: 50%;
+    font-size: 40px;
+    color: rgb(12, 12, 12);
+    text-align: center;
+    background: rgb(199, 233, 7)
+  }
+  .circle-7 {
+    width: 150px;
+    height: 150px;
+    display:block;
+    position:absolute;
+    top:80%;
+    left:0.5%;
+    line-height: 150px;
+    border-radius: 50%;
+    font-size: 40px;
+    color: rgb(12, 12, 12);
+    text-align: center;
+    background: rgb(199, 233, 7)
+  }
+  .circle-8 {
+    width: 150px;
+    height: 150px;
+    display:block;
+    position:absolute;
+    top:80%;
+    left:45%;
+    line-height: 150px;
+    border-radius: 50%;
+    font-size: 40px;
+    color: rgb(12, 12, 12);
+    text-align: center;
+    background: rgb(199, 233, 7)
+  }
+  .circle-9 {
+    width: 150px;
+    height: 150px;
+    display:block;
+    position:absolute;
+    top:80%; 
+    right:0.5%;
+    line-height: 150px;
+    border-radius: 50%;
+    font-size: 40px;
+    color: rgb(12, 12, 12);
+    text-align: center;
+    background: rgb(199, 233, 7)
+  }
+  button {
+    border-radius: 4px;
+    background-color: #5ca1e1;
+    border: none;
+    color: #fff;
+    top: 35%;
+    left: 40%;
+    text-align: center;
+    font-size: 32px;
+    padding: 16px;
+    width: 220px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 36px;
+    box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
+  }
+  
+  button{
+    cursor: pointer;
+    display: inline-block;
+    position: fixed;
+    transition: 0.5s;
+  }
+  
+  button:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;  
+    top: 14px;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  button:hover{
+    padding-right: 24px;
+    padding-left:8px;
+  }
+  
+  button:hover:after {
+    opacity: 1;
+    right: 10px;
+  }
