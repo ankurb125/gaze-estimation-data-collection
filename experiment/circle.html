@@ -10,10 +10,9 @@
   </head>
   <body>
     <div id="circle-1" class="startbutton circle-1 yel-circle">G76H</div>
-    <a class="button" id="go-to-quiz"
-      ><button onclick="location.id ='go-to-quiz'"><span>Next</span></button>
-    </a>
-
+    <a class="button" id="go-to-quiz"><button onclick="location.id ='go-to-quiz'">
+      <span>Next</span>
+    </button></a>
     <div id="circle-2" class="startbutton circle-2 yel-circle">214L</div>
     <div id="circle-3" class="startbutton circle-3 yel-circle">CFXZ</div>
     <div id="circle-4" class="startbutton circle-4 yel-circle">RT5E</div>
@@ -25,12 +24,9 @@
 
     <script>
       let url = new URL(window.location.href);
-      console.log(url);
       let params = new URLSearchParams(url.search);
       let problemCountRawStr = params.get("problemCount"); // string
       const problemCount = parseInt(problemCountRawStr);
-      console.assert(problemCount >= 0, "problemCount is invalid");
-      console.log(problemCount);
       const nextButtonElm = document.getElementById("go-to-quiz");
       nextButtonElm.onclick = () => {
         window.location.href = `quiz.html?problemCount=${problemCount}`;
@@ -62,7 +58,6 @@
       document.getElementById("circle-9").onclick = function () {
         document.getElementById("circle-9").style.display = "none";
       };
-
       const yelCircles = [...document.getElementsByClassName("yel-circle")];
       console.assert(yelCircles.length === 9, "invalid num of circles");
       yelCircles.forEach((elm, circlIdx) => {
