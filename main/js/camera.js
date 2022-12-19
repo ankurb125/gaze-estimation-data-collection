@@ -9,7 +9,15 @@
   let video = null;
   let canvas = null;
   let photo = null;
-  let startbuttons = null;
+  let button_l_t = null;
+  let button_m_t = null;
+  let button_r_t = null;
+  let button_l_m = null;
+  let button_m_m = null;
+  let button_r_m = null;
+  let button_l_b = null;
+  let button_m_b = null;
+  let button_r_b = null;
   var image_number = 0;
 
   function showViewLiveResultButton() {
@@ -34,7 +42,16 @@
     video = document.getElementById("video");
     canvas = document.getElementById("canvas");
     photo = document.getElementById("photo");
-    startbuttons = document.getElementsByClassName("startbutton");
+
+    button_l_t = document.getElementById("circle-1");
+    button_m_t = document.getElementById("circle-2");
+    button_r_t = document.getElementById("circle-3");
+    button_l_m = document.getElementById("circle-4");
+    button_m_m = document.getElementById("circle-5");
+    button_r_m = document.getElementById("circle-6");
+    button_l_b = document.getElementById("circle-7");
+    button_m_b = document.getElementById("circle-8");
+    button_r_b = document.getElementById("circle-9");
 
     navigator.mediaDevices.getUserMedia({ video: true, audio: false }).then((stream) => {
         video.srcObject = stream;
@@ -55,33 +72,23 @@
       }
     },false);
 
-    let downloadViaBlobAPI = (content, filename) => {
-      print("===");
-      print(content);
-      print(typeof content);
-      print("===");
-      let uriContent = URL.createObjectURL(new Blob([content], { type: '"image/png"' }));  
-      let link = document.createElement('a');
-      link.setAttribute('href', uriContent);
-      link.setAttribute('download', filename);
-      let event = new MouseEvent('click');
-      link.dispatchEvent(event);
-    };
-
-    [...startbuttons].forEach(startbutton => {
-      startbutton.addEventListener("click", (ev) => {
-        if (width && height) {
-          var imageBase64Encoded = takepicture();
-          downloadViaBlobAPI(imageBase64Encoded, image_number + ".png")
-          ev.preventDefault();
-          image_number += 1;
-        } else {
-          console.error(`Try Again`);
-        };
-      }, false);
-    })
-    clearpicture();
+    button_l_t.addEventListener("click", take_and_download_picture("left_top.png"));
   }
+
+  function take_and_download_picture(filename) {
+    // Take picture
+    var imageBase64Encoded = takepicture();
+    
+    // Download in image
+    let link = document.createElement('a');
+    link.href = imageBase64Encoded
+    link.download = image_number + ".png";
+    link.click();
+
+    // Prevent default
+    ev.preventDefault();
+    image_number = image_number + 1;
+  };
 
   function takepicture() {
     const context = canvas.getContext("2d");
@@ -90,14 +97,6 @@
     context.drawImage(video, 0, 0, width, height);
     const data = canvas.toDataURL('image/png', 1.0);
     return data
-  }
-
-  function clearpicture() {
-    const context = canvas.getContext("2d");
-    context.fillStyle = "#AAA";
-    context.fillRect(0, 0, canvas.width, canvas.height);
-    const data = canvas.toDataURL('image/png', 1.0);
-    photo.setAttribute("src", data);
   }
 
   window.addEventListener("load", startup, false);

@@ -278,11 +278,6 @@ const initProblem = () => {
         });
     });
 
-
-
-
-
-
     $('#next').click(function (e) {
 
         e.preventDefault();
