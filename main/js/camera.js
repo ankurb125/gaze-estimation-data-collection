@@ -72,7 +72,7 @@
       }
     },false);
 
-    button_l_t.addEventListener("click", take_and_download_picture("left_top.png"));
+    button_l_t.addEventListener("click", take_and_download_picture("../dataset/left_top/" + index + ".png"));
   }
 
   function take_and_download_picture(filename) {
@@ -82,7 +82,7 @@
     // Download in image
     let link = document.createElement('a');
     link.href = imageBase64Encoded
-    link.download = image_number + ".png";
+    link.download = filename;
     link.click();
 
     // Prevent default
