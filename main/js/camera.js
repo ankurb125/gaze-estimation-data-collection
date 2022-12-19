@@ -3,8 +3,8 @@
 // https://stackoverflow.com/questions/14011021/how-to-download-a-base64-encoded-image
 
 (() => {
-  const width = 320;
-  let height = 0;
+  let width = 320;
+  let height = 600;
   let streaming = false;
   let video = null;
   let canvas = null;
@@ -43,23 +43,23 @@
         console.error(`An error occurred: ${err}`);
     });
 
-    video.addEventListener(
-      "canplay",
-      (ev) => {
-        if (!streaming) {
-          height = video.videoHeight / (video.videoWidth / width);
-          if (isNaN(height)) { height = width / (4 / 3); }
-          video.setAttribute("width", width);
-          video.setAttribute("height", height);
-          canvas.setAttribute("width", width);
-          canvas.setAttribute("height", height);
-          streaming = true;
-        }
-      },
-      false
-    );
+    video.addEventListener("canplay", (ev) => {
+      if (!streaming) {
+        height = video.videoHeight / (video.videoWidth / width);
+        if (isNaN(height)) { height = width / (4 / 3); }
+        video.setAttribute("width", width);
+        video.setAttribute("height", height);
+        canvas.setAttribute("width", width);
+        canvas.setAttribute("height", height);
+        streaming = true;
+      }
+    },false);
 
     let downloadViaBlobAPI = (content, filename) => {
+      print("===");
+      print(content);
+      print(typeof content);
+      print("===");
       let uriContent = URL.createObjectURL(new Blob([content], { type: '"image/png"' }));  
       let link = document.createElement('a');
       link.setAttribute('href', uriContent);
@@ -71,7 +71,7 @@
     [...startbuttons].forEach(startbutton => {
       startbutton.addEventListener("click", (ev) => {
         if (width && height) {
-          const imageBase64Encoded = takepicture();
+          var imageBase64Encoded = takepicture();
           downloadViaBlobAPI(imageBase64Encoded, image_number + ".png")
           ev.preventDefault();
           image_number += 1;
@@ -85,12 +85,10 @@
 
   function takepicture() {
     const context = canvas.getContext("2d");
-    console.log("called");
     canvas.width = width;
     canvas.height = height;
     context.drawImage(video, 0, 0, width, height);
     const data = canvas.toDataURL('image/png', 1.0);
-    photo.setAttribute("src", data);
     return data
   }
 
