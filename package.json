@@ -1,31 +1,28 @@
 {
-  "name": "gaze-estimation-data-collection",
+  "name": "gulp-boilerplate",
   "version": "1.0.0",
-  "description": "- This repository is the system for collecting eyegaze while looking at PC display. - Starting point will be `main.html` so please open the file to work on.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint:css": "stylelint --fix **/*.{css,scss,sass}"
-  },
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "author": "me",
+  "license": "ISC",
+  "description": "frontend develop gulp modules",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/psyberlab/gaze-estimation-data-collection.git"
+    "url": ""
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/psyberlab/gaze-estimation-data-collection/issues"
-  },
-  "homepage": "https://github.com/psyberlab/gaze-estimation-data-collection#readme",
   "devDependencies": {
-    "prettier": "^2.8.1",
-    "stylelint": "^14.16.0",
-    "stylelint-config-prettier": "^9.0.4",
-    "stylelint-config-recommended": "^9.0.0",
-    "stylelint-config-recommended-scss": "^8.0.0",
-    "stylelint-order": "^5.0.0",
-    "stylelint-prettier": "^2.0.0",
-    "stylelint-scss": "^4.3.0"
+    "eslint-plugin-react": "^7.10.0",
+    "gulp": "^4.0.0",
+    "gulp-eslint": "^4.0.2",
+    "gulp-htmlhint": "^2.1.1",
+    "gulp-reporter": "^2.8.3",
+    "gulp-sass": "^4.0.1",
+    "gulp-scss-lint": "^0.6.1",
+    "sass-lint-auto-fix": "^0.11.0"
+  },
+  "scripts": {
+    "sass-lint": "sass-lint -v",
+    "sass-lint:fix": "sass-lint-auto-fix -c scss-lint.yml",
+    "lint": "sass-lint-auto-fix -c scss-lint.yml & gulp lint"
   }
 }
