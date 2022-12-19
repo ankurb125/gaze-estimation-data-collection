@@ -1,0 +1,31 @@
+{
+  "name": "gaze-estimation-data-collection",
+  "version": "1.0.0",
+  "description": "- This repository is the system for collecting eyegaze while looking at PC display. - Starting point will be `main.html` so please open the file to work on.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:css": "stylelint --fix **/*.{css,scss,sass}"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/psyberlab/gaze-estimation-data-collection.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/psyberlab/gaze-estimation-data-collection/issues"
+  },
+  "homepage": "https://github.com/psyberlab/gaze-estimation-data-collection#readme",
+  "devDependencies": {
+    "prettier": "^2.8.1",
+    "stylelint": "^14.16.0",
+    "stylelint-config-prettier": "^9.0.4",
+    "stylelint-config-recommended": "^9.0.0",
+    "stylelint-config-recommended-scss": "^8.0.0",
+    "stylelint-order": "^5.0.0",
+    "stylelint-prettier": "^2.0.0",
+    "stylelint-scss": "^4.3.0"
+  }
+}
